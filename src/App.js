@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Modal from "./components/Modal";
+import Cart from "./components/Cart/Cart";
+import Footer from "./components/Footer";
 
+import HomePage from "./components/pages/HomePage";
+import ProductsPage from "./components/pages/ProductsPage";
+import ProductsCategoryPage from "./components/pages/ProductsCategoryPage";
+import DetailsPage from "./components/pages/DetailsPage";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <div className="container-fluid p-0">
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/products/:category" component={ProductsCategoryPage} />
+          <Route exact path="/products" component={ProductsPage} />
+          <Route path="/details/:id" component={DetailsPage} />
+          <Route path="/cart" component={Cart} />
+        </Switch>
+      </div>
+      <Modal />
+      <Footer />
     </div>
   );
 }
