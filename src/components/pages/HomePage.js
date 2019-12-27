@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import Hero from "../Hero";
+import BestSellers from "../BestSellers";
 import { Link } from "react-router-dom";
+import ProductContext from "../../context";
 export default function HomePage() {
+  const { bestSellers } = useContext(ProductContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const slides = [
     {
       img: "img/background.jpg",
@@ -10,7 +16,7 @@ export default function HomePage() {
         h4: "Get the best deals on you Mobile and Accessories today!",
         btn: {
           text: "View New Offers",
-          to: "/"
+          to: "/promotions"
         }
       }
     },
@@ -21,15 +27,19 @@ export default function HomePage() {
         h4: "Get exclusive deals on your new device this winter",
         btn: {
           text: "View New Offers",
-          to: "/"
+          to: "/promotions"
         }
       }
     }
   ];
   return (
     <>
-      <div className="row" style={{ maxWidth: "100%", margin: "0" }}>
+      <div className="row" style={{ margin: "0" }}>
         <Hero slides={slides} />
+      </div>
+      <div className="text-center my-4">
+        <h1 className="text-uppercase ">Bestsellers</h1>
+        <BestSellers products={bestSellers} />
       </div>
       <div className="container">
         <div className="row my-4">

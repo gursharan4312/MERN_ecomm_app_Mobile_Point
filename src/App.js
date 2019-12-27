@@ -12,6 +12,7 @@ import HomePage from "./components/pages/HomePage";
 import ProductsPage from "./components/pages/ProductsPage";
 import ProductsCategoryPage from "./components/pages/ProductsCategoryPage";
 import DetailsPage from "./components/pages/DetailsPage";
+import SpecialDeals from "./components/pages/SpecialDeals";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
           <Route path="/products/:category" component={ProductsCategoryPage} />
           <Route exact path="/products" component={ProductsPage} />
           <Route path="/details/:id" component={DetailsPage} />
+          <Route path="/promotions" component={SpecialDeals} />
           <Route path="/cart" component={Cart} />
         </Switch>
       </div>

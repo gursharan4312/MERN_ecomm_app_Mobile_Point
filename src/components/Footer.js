@@ -32,7 +32,7 @@ export default function Footer() {
 
 const FooterContainer = styled.footer`
   .row {
-    background: #aaa;
+    background: #3ac2f0;
   }
   ul {
     list-style-type: none;

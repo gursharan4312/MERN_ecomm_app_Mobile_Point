@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
 import Heading from "../styled-components/Heading";
 import ProductContext from "../../context";
 
 export default function DetailsPage(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const values = useContext(ProductContext);
   let paramId = Number(props.match.params.id);
   const { id, img, title, company, price, info, inCart } =
@@ -26,9 +28,12 @@ export default function DetailsPage(props) {
             Some Info About the product:
           </p>
           <p className="text-muted">{info}</p>
-          <Link to="/products" className="mr-4">
-            <button className="btn btn-outline-info">go back</button>
-          </Link>
+          <button
+            className="btn btn-outline-info mx-2"
+            onClick={() => window.history.back()}
+          >
+            go back
+          </button>
 
           <button
             className="btn btn-warning"

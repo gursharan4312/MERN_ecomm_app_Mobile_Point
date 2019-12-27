@@ -9,23 +9,37 @@ export default function Navbar() {
     <Nav className="navbar p-3 ">
       <div className="container">
         <div className="row w-100">
-          <div className="col-10">
-            <Link to="/" className="navbar-brand">
+          <div className="col-10 text-center d-inline-flex  justify-content-between pr-0">
+            <Link to="/" className="d-inline-flex align-items-center">
               <img src={logo} alt="brand logo" />
+              <h3 className="d-inline-block ml-2"> mobile point</h3>
             </Link>
             {/* Logo reference:
         https://www.iconfinder.com/icons/1243689/call_phone_icon
         Creative Commons (Attribution 3.0 Unported);
         https://www.iconfinder.com/Makoto_msk */}
-            <ul className="navbar-nav d-inline-flex">
-              <li className="nav-item ml-5">
-                <Link to="/products">Products</Link>
+            <ul className="navbar-nav d-inline-flex flex-row align-items-center text-uppercase">
+              <li className="nav-item mx-2">
+                <Link to="/products/mobile">Mobiles</Link>
+              </li>
+              <li className="nav-item mx-2">
+                <Link to="/products/accessories">Accessories</Link>
+              </li>
+              <li className="nav-item mx-2">
+                <Link to="/promotions">Special Deals</Link>
+              </li>
+              <li className="nav-item mx-2">
+                <Link to="/cart">
+                  <button className="btn btn-outline-primary cart-btn">
+                    login
+                  </button>
+                </Link>
               </li>
             </ul>
           </div>
-          <div className="col-2 cart-btn-container">
-            <Link to="/cart" className="ml-auto cart-btn">
-              <button className="btn btn-warning cart-btn">my cart</button>
+          <div className="col-2 cart-btn-container py-1">
+            <Link to="/cart" className=" cart-btn ">
+              <button className="btn btn-warning cart-btn">cart</button>
             </Link>
             <MiniCart />
           </div>
@@ -38,5 +52,11 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 90;
-  background: #aaa;
+  background: #3ac2f0;
+  a,
+  button {
+    color: #fff;
+    font-weight: bold;
+  }
+  s
 `;

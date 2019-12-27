@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import RBCarousel from "react-bootstrap-carousel";
+import { Link } from "react-router-dom";
 
 export default function Hero({ slides }) {
   return (
@@ -14,7 +15,7 @@ export default function Hero({ slides }) {
       >
         {slides.map((slide, i) => {
           return (
-            <div key={i} style={{ height: "70vh" }}>
+            <div key={i} style={{ minHeight: "100%", maxHeight: "70vh" }}>
               <img
                 src={`/${slide.img}`}
                 alt="background"
@@ -24,9 +25,11 @@ export default function Hero({ slides }) {
                 <h1 className="text-uppercase">{slide.center.h1 || ""}</h1>
                 <h4 className="text-muted">{slide.center.h4 || ""}</h4>
                 {slide.center.btn ? (
-                  <button className="btn btn-success mt-4">
-                    {slide.center.btn.text}
-                  </button>
+                  <Link to={slide.center.btn.to}>
+                    <button className="btn btn-outline-primary font-weight-bold mt-4">
+                      {slide.center.btn.text}
+                    </button>
+                  </Link>
                 ) : (
                   ""
                 )}
@@ -40,7 +43,8 @@ export default function Hero({ slides }) {
 }
 
 const HeroContainer = styled.div`
-  max-height: 80vh !important;
+  max-height: 70vh;
+  min-height: 400px;
   padding: 0;
   max-width: 100%;
   .hero-info {
@@ -52,5 +56,10 @@ const HeroContainer = styled.div`
       font-size: 3rem;
       letter-spacing: 0.5rem;
     }
+  }
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 100%;
   }
 `;

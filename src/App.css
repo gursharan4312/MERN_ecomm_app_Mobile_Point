@@ -8,6 +8,8 @@
 }
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 body {
   background: var(--lightBackground);
@@ -38,6 +40,7 @@ a:hover {
 .btn-count:hover {
   background: #000;
   color: #fff;
+  /* background: #3ac2f0; */
 }
 
 #mini-cart {

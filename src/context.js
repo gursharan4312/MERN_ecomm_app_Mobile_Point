@@ -1,5 +1,4 @@
 import React, { useState, useReducer, useEffect } from "react";
-// import Axios from "axios";
 import cartReducer from "./reducers/cartReducer";
 import productReducer from "./reducers/productsReducer";
 import { storeProducts } from "./data";
@@ -24,6 +23,9 @@ export const ProductProvider = props => {
   const [cart, dispatchCart] = useReducer(cartReducer, []);
 
   const [detailProduct, setDetailProduct] = useState(emptyProduct);
+  const [bestSellers, setBestSellers] = useState(storeProducts);
+  const [mobileDeals, setMobileDeals] = useState(storeProducts);
+  const [accessoryDeals, setaccessoryDeals] = useState(storeProducts);
   const [modal, setModal] = useState(false);
 
   const getProduct = (array, id) => {
@@ -106,7 +108,10 @@ export const ProductProvider = props => {
         removeItem,
         removeItemAll,
         modal,
-        toggleModal
+        toggleModal,
+        bestSellers,
+        mobileDeals,
+        accessoryDeals
       }}
     >
       {props.children}

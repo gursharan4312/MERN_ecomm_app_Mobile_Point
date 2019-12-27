@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../Hero";
 import Products from "../Products";
 
 export default function ProductsPage(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const slides = [
     {
       img: "img/background.jpg",
       center: {
-        h1: "Products",
-        h4: "Find best products here"
+        h1: "Products"
       }
     }
   ];
