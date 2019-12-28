@@ -23,7 +23,7 @@ export default function Navbar() {
                 <Link to="/products/mobile">Mobiles</Link>
               </li>
               <li className="nav-item mx-2">
-                <Link to="/products/accessories">Accessories</Link>
+                <Link to="/products/accessory">Accessories</Link>
               </li>
               <li className="nav-item mx-2">
                 <Link to="/promotions">Special Deals</Link>

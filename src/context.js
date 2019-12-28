@@ -23,10 +23,35 @@ export const ProductProvider = props => {
   const [cart, dispatchCart] = useReducer(cartReducer, []);
 
   const [detailProduct, setDetailProduct] = useState(emptyProduct);
-  const [bestSellers, setBestSellers] = useState(storeProducts);
-  const [mobileDeals, setMobileDeals] = useState(storeProducts);
-  const [accessoryDeals, setaccessoryDeals] = useState(storeProducts);
+  const [bestSellers, setBestSellers] = useState([]);
+  const [mobileDeals, setMobileDeals] = useState([]);
+  const [accessoryDeals, setaccessoryDeals] = useState([]);
   const [modal, setModal] = useState(false);
+
+  const fetch = productCategory => {
+    switch (productCategory) {
+      case "bestSellers":
+        let tempBestSeller = storeProducts.filter(
+          product => product.bestSeller === true
+        );
+        setBestSellers(tempBestSeller);
+        break;
+      case "mobileDeals":
+        let tempMobileDeals = storeProducts.filter(
+          product => product.deal === true && product.category === "mobile"
+        );
+        setMobileDeals(tempMobileDeals);
+        break;
+      case "accessoryDeals":
+        let tempaccessoryDeals = storeProducts.filter(
+          product => product.deal === true && product.category === "accessory"
+        );
+        setaccessoryDeals(tempaccessoryDeals);
+        break;
+      default:
+        return;
+    }
+  };
 
   const getProduct = (array, id) => {
     return array.find(item => item.id === id);
@@ -111,7 +136,8 @@ export const ProductProvider = props => {
         toggleModal,
         bestSellers,
         mobileDeals,
-        accessoryDeals
+        accessoryDeals,
+        fetch
       }}
     >
       {props.children}

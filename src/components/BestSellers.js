@@ -21,9 +21,14 @@ export default function BeseSellers({ products }) {
   return (
     <BeseSellersContainer className="col-12 p-0" position={leftPosition}>
       <div className="row w-100">
-        <div className="col-1 d-inline-flex flex-column justify-content-center arrows">
-          <button onClick={() => handelClick("left")}> &larr;</button>
-        </div>
+        {products.length > 2 ? (
+          <div className="col-1 d-inline-flex flex-column justify-content-center arrows">
+            <button onClick={() => handelClick("left")}> &larr;</button>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="col-10 mx-auto overflow-hidden">
           <div className="d-inline-flex best-sellers w-100 ">
             {products.map(product => {
@@ -31,9 +36,13 @@ export default function BeseSellers({ products }) {
             })}
           </div>
         </div>
-        <div className="col-1 d-inline-flex flex-column justify-content-center arrows">
-          <button onClick={() => handelClick("right")}>&rarr;</button>
-        </div>
+        {products.length > 2 ? (
+          <div className="col-1 d-inline-flex flex-column justify-content-center arrows">
+            <button onClick={() => handelClick("right")}>&rarr;</button>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </BeseSellersContainer>
   );

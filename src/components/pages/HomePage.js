@@ -1,13 +1,21 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Hero from "../Hero";
 import BestSellers from "../BestSellers";
 import { Link } from "react-router-dom";
 import ProductContext from "../../context";
 export default function HomePage() {
-  const { bestSellers } = useContext(ProductContext);
+  const { bestSellers, fetch } = useContext(ProductContext);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  });
+    if (bestSellers.length < 1) fetch("bestSellers");
+    setTimeout(() => {
+      if (bestSellers.length >= 1) setLoadingBestSeller(false);
+    }, 3000);
+  }, [bestSellers]);
+
+  const [loadingBestSeller, setLoadingBestSeller] = useState(
+    bestSellers.length < 1 ? true : false
+  );
   const slides = [
     {
       img: "img/background.jpg",
@@ -39,7 +47,13 @@ export default function HomePage() {
       </div>
       <div className="text-center my-4">
         <h1 className="text-uppercase ">Bestsellers</h1>
-        <BestSellers products={bestSellers} />
+        {loadingBestSeller ? (
+          <div style={{ height: "200px" }}>
+            <h4>loading...</h4>
+          </div>
+        ) : (
+          <BestSellers products={bestSellers} />
+        )}
       </div>
       <div className="container">
         <div className="row my-4">
