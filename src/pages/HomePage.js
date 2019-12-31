@@ -1,8 +1,8 @@
 import React, { useEffect, useContext, useState } from "react";
-import Hero from "../Hero";
-import BestSellers from "../BestSellers";
+import Hero from "../components/Hero";
+import BestSellers from "../components/BestSellers";
 import { Link } from "react-router-dom";
-import ProductContext from "../../context";
+import ProductContext from "../context";
 export default function HomePage() {
   const { bestSellers, fetch } = useContext(ProductContext);
 
@@ -29,7 +29,7 @@ export default function HomePage() {
       }
     },
     {
-      img: "img/background.jpg",
+      img: "img/background1.jpg",
       center: {
         h1: "Winter Sale!!!",
         h4: "Get exclusive deals on your new device this winter",
@@ -48,8 +48,12 @@ export default function HomePage() {
       <div className="text-center my-4">
         <h1 className="text-uppercase ">Bestsellers</h1>
         {loadingBestSeller ? (
-          <div style={{ height: "200px" }}>
-            <h4>loading...</h4>
+          <div
+            style={{ height: "200px" }}
+            className="d-flex justify-content-center"
+          >
+            <h4 className="d-inline-block mx-4">Loading</h4>
+            <div className="loader "></div>
           </div>
         ) : (
           <BestSellers products={bestSellers} />
@@ -57,10 +61,10 @@ export default function HomePage() {
       </div>
       <div className="container">
         <div className="row my-4">
-          <div className="col-10 col-md-4 mx-auto">
-            <img src="/img/background.jpg" alt="mobile" className="img-fluid" />
+          <div className="col-10 col-md-4 mx-auto ">
+            <img src="/img/mobile.jpg" alt="mobile" className="img-fluid" />
           </div>
-          <div className="col-10 col-md-8 mx-auto text-center py-4">
+          <div className="col-10 col-md-8 mx-auto text-center py-4 ">
             <h2>Mobiles</h2>
             <p className="lead">Get the best deals on mobiles today</p>
             <Link to="/products/mobile">
@@ -71,12 +75,12 @@ export default function HomePage() {
         <div className="row my-4">
           <div className="col-10 col-md-4 mx-auto d-block d-md-none">
             <img
-              src="/img/background.jpg"
+              src="/img/accessory.jpg"
               alt="accessory"
               className="img-fluid"
             />
           </div>
-          <div className="col-10 col-md-8 mx-auto text-center py-4">
+          <div className="col-10 col-md-8 mx-auto text-center py-4 ">
             <h2>Accessories</h2>
             <p className="lead">
               Most affordable and quality mobile accessories available
@@ -87,9 +91,9 @@ export default function HomePage() {
               </button>
             </Link>
           </div>
-          <div className="col-10 col-md-4 mx-auto d-none d-md-block">
+          <div className="col-10 col-md-4 mx-auto d-none d-md-block ">
             <img
-              src="/img/background.jpg"
+              src="/img/accessory.jpg"
               alt="accessory"
               className="img-fluid"
             />

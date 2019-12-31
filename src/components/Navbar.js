@@ -28,13 +28,13 @@ export default function Navbar() {
               <li className="nav-item mx-2">
                 <Link to="/promotions">Special Deals</Link>
               </li>
-              <li className="nav-item mx-2">
+              {/* <li className="nav-item mx-2">
                 <Link to="/cart">
                   <button className="btn btn-outline-primary cart-btn">
                     login
                   </button>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="col-2 cart-btn-container py-1">

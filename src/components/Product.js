@@ -24,7 +24,6 @@ export default function Product(props) {
           </Link>
         </div>
         <div className="button-container d-flex my-2">
-          {/* <button className="btn btn-success">Buy now</button> */}
           <button
             className="btn btn-warning"
             disabled={inCart}

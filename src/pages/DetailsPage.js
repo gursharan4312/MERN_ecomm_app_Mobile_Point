@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Heading from "../styled-components/Heading";
-import ProductContext from "../../context";
+import ProductContext from "../context";
 
 export default function DetailsPage(props) {
   useEffect(() => {
@@ -14,7 +13,7 @@ export default function DetailsPage(props) {
     <>
       <div className="row">
         <div className="col-10 mx-auto">
-          <Heading>{title}</Heading>
+          <h1 className="heading">{title}</h1>
         </div>
       </div>
       <div className="row">

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Hero from "../Hero";
-import Products from "../Products";
+import Hero from "../components/Hero";
+import Products from "../components/Products";
 
 export default function ProductsPage(props) {
   useEffect(() => {

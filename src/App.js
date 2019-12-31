@@ -8,11 +8,11 @@ import Modal from "./components/Modal";
 import Cart from "./components/Cart/Cart";
 import Footer from "./components/Footer";
 
-import HomePage from "./components/pages/HomePage";
-import ProductsPage from "./components/pages/ProductsPage";
-import ProductsCategoryPage from "./components/pages/ProductsCategoryPage";
-import DetailsPage from "./components/pages/DetailsPage";
-import SpecialDeals from "./components/pages/SpecialDeals";
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductsCategoryPage from "./pages/ProductsCategoryPage";
+import DetailsPage from "./pages/DetailsPage";
+import SpecialDeals from "./pages/SpecialDeals";
 function App() {
   return (
     <div className="App">

@@ -6,25 +6,31 @@ export default function Products({ category }) {
   const values = useContext(ProductContext);
   const [productCount, setProductCount] = useState(4);
   const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(
+      values.products.filter(product =>
+        category ? product.category === category : true
+      )
+    );
+  }, [values.products, category]);
+
   const loadMore = () => {
-    let maxProducts = values.products.length;
+    let maxProducts = products.length;
     if (productCount + 4 <= maxProducts) setProductCount(productCount + 4);
     else setProductCount(maxProducts);
   };
-  useEffect(() => {
-    setProducts(
-      values.products
-        .filter(product => (category ? product.category === category : true))
-        .slice(0, productCount)
-    );
-  }, [values.products, productCount, category]);
 
   return (
     <>
       <div className="row">
         {products.length >= 1 ? (
-          products.map(product => {
-            return <Product product={product} key={product.id} />;
+          products.map((product, i) => {
+            return i < productCount ? (
+              <Product product={product} key={product.id} />
+            ) : (
+              ""
+            );
           })
         ) : (
           <div className="col-10 mx-auto text-center my-4">
@@ -38,7 +44,7 @@ export default function Products({ category }) {
             <button
               className="btn btn-outline-primary"
               onClick={loadMore}
-              disabled={values.products.length <= productCount ? true : false}
+              disabled={products.length <= productCount ? true : false}
             >
               load more..
             </button>

@@ -19,7 +19,7 @@ export default function Hero({ slides }) {
               <img
                 src={`/${slide.img}`}
                 alt="background"
-                style={{ width: "100%", height: "100%" }}
+                className="hero-img"
               />
               <div className="carousel-center text-center hero-info">
                 <h1 className="text-uppercase">{slide.center.h1 || ""}</h1>
@@ -61,5 +61,10 @@ const HeroContainer = styled.div`
   .carousel-inner,
   .carousel-item {
     height: 100%;
+  }
+  .hero-img {
+    height: 100%;
+    width: 100%;
+    filter: brightness(0.7);
   }
 `;

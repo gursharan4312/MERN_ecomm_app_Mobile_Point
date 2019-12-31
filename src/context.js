@@ -31,19 +31,19 @@ export const ProductProvider = props => {
   const fetch = productCategory => {
     switch (productCategory) {
       case "bestSellers":
-        let tempBestSeller = storeProducts.filter(
+        let tempBestSeller = products.filter(
           product => product.bestSeller === true
         );
         setBestSellers(tempBestSeller);
         break;
       case "mobileDeals":
-        let tempMobileDeals = storeProducts.filter(
+        let tempMobileDeals = products.filter(
           product => product.deal === true && product.category === "mobile"
         );
         setMobileDeals(tempMobileDeals);
         break;
       case "accessoryDeals":
-        let tempaccessoryDeals = storeProducts.filter(
+        let tempaccessoryDeals = products.filter(
           product => product.deal === true && product.category === "accessory"
         );
         setaccessoryDeals(tempaccessoryDeals);
@@ -120,6 +120,13 @@ export const ProductProvider = props => {
     ];
     dispatchCartProducts({ type: "ADD_PRODUCTS", payload: tempProducts });
   }, []);
+
+  useEffect(() => {
+    let tempBestSeller = products.filter(
+      product => product.bestSeller === true
+    );
+    setBestSellers(tempBestSeller);
+  }, [products])
 
   return (
     <ProductContext.Provider

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Heading from "../styled-components/Heading";
 import CartColoumns from "./CartColoumns";
 import CartItem from "./CartItem";
 import ProductContext from "../../context";
@@ -10,7 +9,7 @@ export default function Cart() {
   const { cart } = values;
   return (
     <div>
-      <Heading>Cart</Heading>
+      <h1 className="heading">Cart</h1>
       {cart.length > 0 ? (
         <>
           <CartColoumns />
@@ -24,7 +23,7 @@ export default function Cart() {
           </div>
         </>
       ) : (
-        <Heading>Your Cart is Empty</Heading>
+        <h1 className="heading">Your Cart is Empty</h1>
       )}
     </div>
   );
